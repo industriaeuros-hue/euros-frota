@@ -1,0 +1,41 @@
+{
+  "vehicles": [
+    {
+      "id": "1793742361927",
+      "plate": "NCM-1992",
+      "status": "Ativo",
+      "brand": "VOLKSWAGEN",
+      "model": "SAVEIRO CS 2015",
+      "year": 2015,
+      "km": 0,
+      "driver": "Devair",
+      "location": "JI-PARANÁ EUROS",
+      "history": []
+    },
+    {
+      "id": "1793742741256",
+      "plate": "NDK-6860",
+      "status": "Ativo",
+      "brand": "MERCEDES-BENZ",
+      "model": "L 1620 2004",
+      "year": 2004,
+      "km": 0,
+      "driver": "",
+      "location": "CAIARI",
+      "history": []
+    },
+    {
+      "id": "1793742184151",
+      "plate": "RSY-1C75",
+      "status": "Ativo",
+      "brand": "VOLVO",
+      "model": "VM 270 6X2",
+      "year": 2022,
+      "km": 0,
+      "driver": "LEONILDO",
+      "location": "JI-PARANÁ EUROS",
+      "history": []
+    }
+  ],
+  "trash": []
+}
