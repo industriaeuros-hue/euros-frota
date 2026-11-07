@@ -6,7 +6,7 @@ const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// 1. Cole aqui a sua chave Publishable do Supabase (aquela que começa com sb_publishable_...)
+// Configuração do Supabase
 const SUPABASE_URL = 'https://aehnwhbmzqxjffwiton.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_2i-n4i9tZNNGxDvODCRVSg_0k_Y4i7Y';
 
@@ -16,7 +16,7 @@ app.use(cors());
 app.use(express.json({ limit: '50mb' }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Obter os veículos do Supabase
+// Obter os veículos direto do Supabase
 app.get('/api/vehicles', async (req, res) => {
     try {
         const { data, error } = await supabase
@@ -25,7 +25,7 @@ app.get('/api/vehicles', async (req, res) => {
             .eq('id', 'main_data')
             .single();
 
-        if (error && error.code !== 'PGRST116') { // PGRST116 ignora se a linha ainda não existir
+        if (error && error.code !== 'PGRST116') { // Ignora se a linha ainda não existir
             throw error;
         }
 
@@ -37,7 +37,7 @@ app.get('/api/vehicles', async (req, res) => {
     }
 });
 
-// Salvar/Atualizar os veículos no Supabase
+// Salvar/Atualizar os veículos no Supabase de forma permanente
 app.post('/api/vehicles', async (req, res) => {
     try {
         const vehiclesData = req.body;
@@ -50,7 +50,7 @@ app.post('/api/vehicles', async (req, res) => {
             });
 
         if (error) throw error;
-        res.json({ message: 'Dados salvos com sucesso!' });
+        res.json({ message: 'Dados salvos com sucesso no Supabase!' });
     } catch (err) {
         console.error('Erro ao salvar no Supabase:', err);
         res.status(500).json({ error: 'Erro ao salvar dados' });
